@@ -25,12 +25,22 @@ const userSchema = mongoose.Schema({
     type: Number,
     default: 0,
   },
-  image: String,
+  proFileImg: {
+    String,
+    default: "",
+  },
+  tempImg: {
+    String,
+  },
   token: {
     type: String,
   },
   tokenExp: {
     type: Number,
+  },
+  friends: {
+    type: Number,
+    default: 0,
   },
 });
 
