@@ -7,7 +7,8 @@
     "start": "node server/index.js",
     "backend": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
+    "build:server": "babel server -d build"
   },
   "author": "lyn",
   "license": "ISC",
@@ -22,6 +23,8 @@
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.13",
     "eslint": "^8.19.0",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1"

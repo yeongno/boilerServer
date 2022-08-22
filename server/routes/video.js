@@ -21,7 +21,6 @@ let storage = multer.diskStorage({
   },
 });
 var upload = multer({ storage: storage }).single("file");
-var ffmpeg = require("fluent-ffmpeg");
 router.post("/uploadfiles", (req, res) => {
   upload(req, res, (err) => {
     if (err) {
