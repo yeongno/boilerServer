@@ -36,27 +36,27 @@ app.use("/api/friends", require("./routes/friends"));
 app.use("/uploads", express.static("uploads"));
 
 // Serve static assets if in production
-// if (process.env.NODE_ENV === "production") {
-//   // Set static folder
-//   // app.use(express.static("client/build"));
-//   app.use(express.static("/build"));
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("client/build"));
+  // app.use(express.static("/build"));
 
-//   // index.html for all page routes
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-//   });
-// }
+  // index.html for all page routes
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
-app.use(cors());
-//STATIC
-// get directory where is index.html
-const root = path.join(__dirname, "../client", "build");
-//express.use static with the directory
-app.use(express.static(root));
-//express get request any (*) root, please use file that is on root directory configure above.
-app.get("*", (req, res) => {
-  res.sendFile("index.html", { root });
-});
+// app.use(cors());
+// //STATIC
+// // get directory where is index.html
+// const root = path.join(__dirname, "client", "build");
+// //express.use static with the directory
+// app.use(express.static(root));
+// //express get request any (*) root, please use file that is on root directory configure above.
+// app.get("*", (req, res) => {
+//   res.sendFile("index.html", { root });
+// });
 
 const PORT = process.env.PORT || 5000;
 
