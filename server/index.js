@@ -4,6 +4,7 @@ const config = require("./config/key");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const path = require("path");
+const cors = require("cors");
 // const uri = process.env.MONGO_URI;
 //application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
