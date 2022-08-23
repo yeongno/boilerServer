@@ -47,17 +47,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// app.use(cors());
-// //STATIC
-// // get directory where is index.html
-// const root = path.join(__dirname, "client", "build");
-// //express.use static with the directory
-// app.use(express.static(root));
-// //express get request any (*) root, please use file that is on root directory configure above.
-// app.get("*", (req, res) => {
-//   res.sendFile("index.html", { root });
-// });
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
