@@ -50,7 +50,7 @@ app.use("/uploads", express.static("uploads"));
 app.use(cors());
 //STATIC
 // get directory where is index.html
-const root = path.join(__dirname, "client", "build");
+const root = path.join(__dirname, "../client", "build");
 //express.use static with the directory
 app.use(express.static(root));
 //express get request any (*) root, please use file that is on root directory configure above.
