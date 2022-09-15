@@ -144,15 +144,6 @@ router.get("/logout", auth, (req, res) => {
   });
 });
 
-router.get("/logout", (req, res) => {
-  User.find({ _id: req.user._id }, { token: "" }, (err, user) => {
-    if (err) return res.json({ success: false, err });
-    return res.status(200).send({
-      success: true,
-    });
-  });
-});
-
 router.post("/updateName", (req, res) => {
   User.findOneAndUpdate(
     { _id: req.body._id },
@@ -204,5 +195,4 @@ router.post("/updateFriend", (req, res) => {
     return res.status(200).json({ success: true });
   });
 });
-
 module.exports = router;

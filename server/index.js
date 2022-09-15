@@ -3,9 +3,7 @@ const app = express();
 const config = require("./config/key");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const path = require("path");
-const cors = require("cors");
-// const uri = process.env.MONGO_URI;
+
 //application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -39,17 +37,16 @@ app.use("/uploads", express.static("uploads"));
 if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
-  // app.use(express.static("/build"));
 
   // index.html for all page routes
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve("../../client/build/index.html"));
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 // app.listen(process.env.PORT || 3000, function () {
 //   console.log(
 //     "Express server listening on port %d in %s mode",
