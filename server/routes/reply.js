@@ -1,11 +1,13 @@
 const express = require("express");
 const { Reply } = require("../models/Reply");
+const { User } = require("../models/User");
 const router = express.Router();
 router.post("/setReply", (req, res) => {
   //회원 가입 할 때 필요한 정보들을 client에서 가져오면
   //그것들을 데이터 베이스에 넣어준다.
 
   const reply = new Reply(req.body);
+  // if(Reply.find({ postFrom: req.body.postFrom }) && Reply.find({userFrom: req.body.postFrom}) && Reply.findOne({comNum}) )
 
   reply.save((err, req) => {
     if (err) return res.json({ success: false, err });
@@ -28,5 +30,7 @@ router.post("/removeReply", (req, res) => {
     return res.status(200).json({ success: true });
   });
 });
+
+
 
 module.exports = router;
